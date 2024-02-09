@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const RestarautName = styled.div`
-  font-size:50px;
-`;
+  font-size: 50px;
+`
 
 export const Section = styled.div`
   display: flex;

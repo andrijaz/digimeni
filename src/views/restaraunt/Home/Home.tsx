@@ -1,37 +1,52 @@
-import { useParams } from 'react-router-dom'
-import { Section, IconWrap } from './styled'
-import SvgIcon from '@mui/material/SvgIcon'
+import { useParams, useNavigate } from "react-router-dom"
+import { Section, IconWrap } from "./styled"
+import SvgIcon from "@mui/material/SvgIcon"
 
-import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined'
-import DinnerDiningOutlinedIcon from '@mui/icons-material/DinnerDiningOutlined'
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined'
-import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined'
-import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined'
-import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined'
-import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined'
+import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined"
+import DinnerDiningOutlinedIcon from "@mui/icons-material/DinnerDiningOutlined"
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined"
+import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined"
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined"
+import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined"
+import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined"
 
-import { ReactComponent as FaceBookIcon } from 'assets/images/icons/facebook.svg'
-import { ReactComponent as InstagramIcon } from 'assets/images/icons/instagram.svg'
-import { ReactComponent as GoogleMapIcon } from 'assets/images/icons/google-maps.svg'
-import { ReactComponent as DigiMeniIcon } from 'assets/images/icons/digi-meni.svg'
+import { ReactComponent as FaceBookIcon } from "assets/images/icons/facebook.svg"
+import { ReactComponent as InstagramIcon } from "assets/images/icons/instagram.svg"
+import { ReactComponent as GoogleMapIcon } from "assets/images/icons/google-maps.svg"
+import { ReactComponent as DigiMeniIcon } from "assets/images/icons/digi-meni.svg"
 
-import IconButton from 'components/base/IconButton'
+import IconButton from "components/base/IconButton"
 
-import Typography from 'components/base/typography/Text'
-import withPageLayout from 'views/generalPagelayout'
-
+import Typography from "components/base/typography/Text"
+import withPageLayout from "views/generalPagelayout"
+import {
+  RoutePaths,
+  buildEditMealUrl,
+  buildResAdminUrl,
+  replaceResSlug,
+} from "routing/RoutePaths"
 
 const Home: React.FC = () => {
+  const router = useNavigate()
   const { slug } = useParams()
+
+  function handleButtonClick(url: string) {
+    router(url)
+  }
   return (
     <div
-      style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', rowGap: '30px' }}
+      style={{ display: "flex", flexWrap: "wrap", gap: "20px", rowGap: "30px" }}
     >
-      <div style={{fontSize:"3rem"}}>Kacina Kafa Kod Kuce - 4k</div>
+      <div style={{ fontSize: "3rem" }}>Kacina Kafa Kod Kuce - 4k</div>
       <Section>
         <IconWrap>
-          <IconButton icon={<MenuBookOutlinedIcon />} />
+          <IconButton
+            icon={<MenuBookOutlinedIcon />}
+            onClick={() =>
+              handleButtonClick(replaceResSlug(RoutePaths.resEditMenu, "kafa"))
+            }
+          />
           <Typography variant="body2">Izmeni Jelovnik</Typography>
         </IconWrap>
         <IconWrap>
@@ -44,13 +59,16 @@ const Home: React.FC = () => {
           <Typography variant="body2">Izmeni pocetnu</Typography>
         </IconWrap>
       </Section>
-      <Section style={{ flex: "0 0 25%"}}>
+      <Section style={{ flex: "0 0 25%" }}>
         <IconWrap>
-          <IconButton icon={<AddCircleOutlineOutlinedIcon />} />
+          <IconButton
+            icon={<AddCircleOutlineOutlinedIcon />}
+            onClick={() => handleButtonClick(buildEditMealUrl("kafa", "123"))}
+          />
           <Typography variant="body2">Dodaj jelo</Typography>
         </IconWrap>
       </Section>
-      <Section style={{ flex:"1"}}>
+      <Section style={{ flex: "1" }}>
         <IconWrap>
           <IconButton icon={<PhotoCameraOutlinedIcon />} />
           <Typography variant="body2">Ucitaj meni iz slike</Typography>
@@ -91,12 +109,12 @@ const Home: React.FC = () => {
 
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-          width: '100%',
-          height: '50px',
-          alignItems: 'end',
+          display: "flex",
+          justifyContent: "space-between",
+          flexDirection: "row",
+          width: "100%",
+          height: "50px",
+          alignItems: "end",
         }}
       >
         <div>Powered by DigiMeni</div>

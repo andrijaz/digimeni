@@ -1,7 +1,7 @@
-import { ReactNode } from 'react'
-import { css } from 'styled-components'
-import { space, SpaceProps } from 'styled-system'
-import { ifProp, prop } from 'styled-tools'
+import { ReactNode } from "react"
+import { css } from "styled-components"
+import { space, SpaceProps } from "styled-system"
+import { ifProp, prop } from "styled-tools"
 
 export interface TypographyBaseProps extends SpaceProps {
   children: ReactNode
@@ -24,10 +24,10 @@ export const TypographyBaseStyles = css<TypographyBaseProps>`
   font-size: ${({ fontSize, theme }) => fontSize ?? theme.font.size.base};
   line-height: ${({ lineHeight, theme }) =>
     lineHeight ?? theme.font.lineHeight.regular};
-  text-align: ${ifProp('textAlign', prop('textAlign'), 'left')};
-  font-style: ${ifProp('fontStyle', prop('fontStyle'))};
-  text-decoration: ${ifProp('textDecoration', prop('textDecoration'))};
-  text-transform: ${ifProp('textTransform', prop('textTransform'))};
+  text-align: ${ifProp("textAlign", prop("textAlign"), "left")};
+  font-style: ${ifProp("fontStyle", prop("fontStyle"))};
+  text-decoration: ${ifProp("textDecoration", prop("textDecoration"))};
+  text-transform: ${ifProp("textTransform", prop("textTransform"))};
   margin: 0;
   ${space};
 `

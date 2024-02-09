@@ -1,19 +1,29 @@
-import React from 'react'
+import React from "react"
 import {
   createBrowserRouter,
   RouterProvider,
   RouteObject,
-} from 'react-router-dom'
-import CustomerHome from 'views/customer/Home'
-import RestarauntHome from 'views/restaraunt/Home/Home'
-import RestarauntAdminLogin from 'views/restaraunt/Login'
-import NotFound from 'views/NotFound'
-import { RoutePaths } from './RoutePaths'
+} from "react-router-dom"
+import CustomerHome from "views/customer/Home"
+import RestarauntHome from "views/restaraunt/Home/Home"
+import RestarauntAdminLogin from "views/restaraunt/Login"
+import NotFound from "views/NotFound"
+import { RoutePaths } from "./RoutePaths"
+import AddMealPage from "views/restaraunt/Meal"
+import SectionPage from "views/restaraunt/Section"
+import MenuEditorPage from "views/restaraunt/Menu"
+
+
 const routes: RouteObject[] = [
-  { path: '/', element: <CustomerHome /> },
+  { path: RoutePaths.home, element: <CustomerHome /> },
   { path: RoutePaths.login, element: <RestarauntAdminLogin /> },
   { path: RoutePaths.resHomeAdmin, element: <RestarauntHome /> },
-  { path: '*', element: <NotFound /> },
+  { path: RoutePaths.resAddMeal, element: <AddMealPage /> },
+  { path: RoutePaths.resEditMeal, element: <AddMealPage /> },
+  { path: RoutePaths.resAddSection, element: <SectionPage /> },
+  { path: RoutePaths.resEditMenu, element: <MenuEditorPage /> },
+
+  { path: "*", element: <NotFound /> },
 ]
 
 const router = createBrowserRouter(routes)
