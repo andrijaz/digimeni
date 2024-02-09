@@ -1,5 +1,5 @@
 // src/views/NotFound.tsx
-import React from 'react'
+import React from "react"
 
 const NotFound: React.FC = () => {
   return (

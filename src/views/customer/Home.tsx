@@ -1,7 +1,7 @@
-import React from 'react'
-import Button from 'components/base/Button'
-import TextField from 'components/base/TextField'
-import Typography from 'components/base/typography/Text'
+import React from "react"
+import Button from "components/base/Button"
+import TextField from "components/base/TextField"
+import Typography from "components/base/typography/Text"
 
 const Home: React.FC = () => {
   return (

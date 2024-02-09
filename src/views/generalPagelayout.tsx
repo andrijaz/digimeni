@@ -1,9 +1,10 @@
-import { FC } from 'react'
-// import { Navbar, Footer } from "components/complex";
-import styled from 'styled-components'
+import Footer from "components/base/Footer"
+import Header from "components/base/Header"
+import { FC } from "react"
+import styled from "styled-components"
 
-export const mobileHeaderHeight = '70px'
-export const desktopHeaderHeight = '123px'
+export const mobileHeaderHeight = "70px"
+export const desktopHeaderHeight = "123px"
 
 const Layout = styled.div`
   min-height: calc(100vh - 120px);
@@ -17,11 +18,11 @@ export default function withPageLayout(PageComponent: FC) {
   return (props: any) => {
     return (
       <>
-        {/* <Navbar /> */}
+        <Header />
         <Layout>
           <PageComponent {...props} />
         </Layout>
-        {/* <Footer /> */}
+        <Footer aboutLink="www.google.com" contactLink="www.google.com" />
       </>
     )
   }

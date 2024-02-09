@@ -1,16 +1,15 @@
-import { ReactNode, MouseEvent, cloneElement } from 'react'
-import MuiIconButton from '@mui/material/IconButton'
-import DeleteIcon from '@mui/icons-material/Delete'
-import { SvgIcon, IconButtonProps } from '@mui/material'
+import { ReactNode, MouseEvent, cloneElement } from "react"
+import MuiIconButton from "@mui/material/IconButton"
+import { IconButtonProps } from "@mui/material"
 
 interface MyIconButtonProps extends IconButtonProps {
   onClick?: () => void
-  size?: 'small' | 'medium' | 'large'
+  size?: "small" | "medium" | "large"
   icon: ReactNode
 }
 const IconButton = ({
   onClick,
-  size = 'large',
+  size = "large",
   icon,
   color,
   ...rest
