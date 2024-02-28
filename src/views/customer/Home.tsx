@@ -8,10 +8,7 @@ const Home: React.FC = () => {
     <div>
       <h2>Home</h2>
       <p>Welcome to the Home Page of DigiMenu</p>
-      <Typography variant="body1">Ime jela</Typography>
-      <TextField />
-
-      <Button>Proba</Button>
+      <TextField></TextField>
     </div>
   )
 }

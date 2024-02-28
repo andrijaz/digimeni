@@ -2,10 +2,18 @@ import { MenuItemDrag } from "./helper"
 import styled from "styled-components"
 import { Draggable } from "react-beautiful-dnd"
 
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined"
 import IconButton from "components/base/IconButton"
-import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
-import Typography from "components/base/typography/Text";
+import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined"
+import Typography from "components/base/typography/Text"
+import {
+  RoutePaths,
+  buildEditMealUrl,
+  buildEditSectionlUrl,
+} from "routing/RoutePaths"
+
+import { useNavigate } from "react-router-dom"
+import { REST_SLUG } from "views/constants"
 
 interface ItemProps {
   item: MenuItemDrag
@@ -27,8 +35,18 @@ const Container = styled.div<{ item_type: string; is_drag: boolean }>`
   display: flex;
   justify-content: space-between;
 `
-
+function getEditUrl(item: MenuItemDrag) {
+  if (item.type === "meal") {
+    return buildEditMealUrl(REST_SLUG, item.id)
+  }
+  return buildEditSectionlUrl(REST_SLUG, item.id)
+}
 export default function Item({ item, index }: ItemProps) {
+  const router = useNavigate()
+
+  function onClickEdit(item: MenuItemDrag) {
+    return router(getEditUrl(item))
+  }
   return (
     <Draggable draggableId={item.id} index={index}>
       {(provided, snapshot) => (
@@ -42,13 +60,16 @@ export default function Item({ item, index }: ItemProps) {
         >
           <div>
             {item.id} - {item.name}
-            </div>
+          </div>
 
-            <div>
-            <IconButton size="small" icon={<EditOutlinedIcon />} />
+          <div>
+            <IconButton
+              size="small"
+              icon={<EditOutlinedIcon />}
+              onClick={() => onClickEdit(item)}
+            />
             <IconButton size="small" icon={<ClearOutlinedIcon />} />
-
-            </div>
+          </div>
         </Container>
       )}
     </Draggable>
