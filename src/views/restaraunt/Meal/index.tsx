@@ -1,6 +1,5 @@
 import withPageLayout from "views/generalPagelayout"
 import MealForm from "./form"
-import Button from "components/base/Button"
 
 function AddMeal() {
   const initialValuesForUpdate = {
@@ -23,7 +22,6 @@ function AddMeal() {
         initialValues={initialValuesForUpdate}
         onSubmit={handleUpdateMeal}
       />
-      <Button onClick={() => console.log("asd")}>adasdasd</Button>
     </div>
   )
 }

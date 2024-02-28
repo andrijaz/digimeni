@@ -11,8 +11,6 @@ function AddSection() {
     <div>
       <h1>izmeni Sekciju</h1>
       <SectionForm initialValues={initialValuesForUpdate} />
-
-      <Button onClick={() => console.log("asd")}>adasdasd</Button>
     </div>
   )
 }

@@ -15,6 +15,7 @@ export enum RoutePaths {
   resAddSection = "/r/:slug/admin/s/new",
   resEditSection = "/r/:slug/admin/s/:id/edit",
   resEditMenu = "/r/:slug/admin/menu",
+  resEditFood = "/r/:slug/admin/editFood",
 }
 export const replaceResSlug = (path: RoutePaths, slug: string) =>
   path.replace(":slug", slug)
@@ -27,3 +28,9 @@ export const buildResAdminUrl = (resSlug: string = "") =>
 
 export const buildEditMealUrl = (resSlug: string, id: string) =>
   RoutePaths.resEditMeal.replace(":slug", resSlug).replace(":id", id)
+
+export const buildEditSectionlUrl = (resSlug: string, id: string) =>
+  RoutePaths.resEditSection.replace(":slug", resSlug).replace(":id", id)
+
+export const buildEditFoodUrl = (resSlug: string) =>
+  RoutePaths.resEditFood.replace(":slug", resSlug)

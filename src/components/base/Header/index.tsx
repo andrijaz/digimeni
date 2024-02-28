@@ -12,6 +12,7 @@ import { ThemeProvider } from "@mui/system"
 import { useNavigate } from "react-router-dom"
 import { buildResAdminUrl } from "routing/RoutePaths"
 import theme from "assets/styles/theme"
+import { REST_SLUG } from "views/constants"
 
 const Header: React.FC = () => {
   const router = useNavigate()
@@ -26,7 +27,7 @@ const Header: React.FC = () => {
         </LogoContainer>
         <HomeButtonContainer>
           <HomeIconButton
-            onClick={() => handleButtonClick(buildResAdminUrl("kafa"))}
+            onClick={() => handleButtonClick(buildResAdminUrl(REST_SLUG))}
           >
             <HomeOutlinedIcon />
           </HomeIconButton>

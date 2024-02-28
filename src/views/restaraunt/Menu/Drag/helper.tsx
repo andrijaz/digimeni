@@ -138,10 +138,3 @@ export function findMealsAfterSection(
 
   return { startIndex, endIndex }
 }
-
-// const sectionsAndMeals = ['S', 'M', 'M', 'M', 'S', 'M', 'S'];
-// const indexOfS = 0; // Index of 'S'
-
-// const { startIndex, endIndex } = findMealsAfterSection(sectionsAndMeals, indexOfS);
-// console.log("Start Index:", startIndex); // Output: 1
-// console.log("End Index:", endIndex); // Output: 3

@@ -22,10 +22,12 @@ import Typography from "components/base/typography/Text"
 import withPageLayout from "views/generalPagelayout"
 import {
   RoutePaths,
+  buildEditFoodUrl,
   buildEditMealUrl,
   buildResAdminUrl,
   replaceResSlug,
 } from "routing/RoutePaths"
+import { REST_SLUG } from "views/constants"
 
 const Home: React.FC = () => {
   const router = useNavigate()
@@ -44,13 +46,18 @@ const Home: React.FC = () => {
           <IconButton
             icon={<MenuBookOutlinedIcon />}
             onClick={() =>
-              handleButtonClick(replaceResSlug(RoutePaths.resEditMenu, "kafa"))
+              handleButtonClick(
+                replaceResSlug(RoutePaths.resEditMenu, REST_SLUG),
+              )
             }
           />
           <Typography variant="body2">Izmeni Jelovnik</Typography>
         </IconWrap>
         <IconWrap>
-          <IconButton icon={<DinnerDiningOutlinedIcon />} />
+          <IconButton
+            icon={<DinnerDiningOutlinedIcon />}
+            onClick={() => handleButtonClick(buildEditFoodUrl(REST_SLUG))}
+          />
           <Typography variant="body2">Izmeni Hranu</Typography>
         </IconWrap>
 
@@ -63,7 +70,9 @@ const Home: React.FC = () => {
         <IconWrap>
           <IconButton
             icon={<AddCircleOutlineOutlinedIcon />}
-            onClick={() => handleButtonClick(buildEditMealUrl("kafa", "123"))}
+            onClick={() =>
+              handleButtonClick(buildEditMealUrl(REST_SLUG, "123"))
+            }
           />
           <Typography variant="body2">Dodaj jelo</Typography>
         </IconWrap>

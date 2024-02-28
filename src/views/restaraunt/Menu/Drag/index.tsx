@@ -14,6 +14,8 @@ import {
   findMealsAfterSection,
 } from "./helper"
 import Column from "./Column"
+import Typography from "components/base/typography/Text"
+import TextField from "components/base/TextField"
 
 const resultObj = {
   draggableId: "1",
@@ -115,13 +117,10 @@ export function MenuDrag() {
       src.index,
       state.tasks,
     )
-    console.log("Start , end", startIndex, endIndex)
     const newTaskIds = Array.from(col.tasksIds)
     var howManyToMove = endIndex - startIndex
-    console.log("move from ", src.index, "How many to move", howManyToMove)
     newTaskIds.splice(src.index, howManyToMove + 1)
     const itemsToMove = col.tasksIds.slice(startIndex, endIndex + 1)
-    console.log("Items to move", itemsToMove)
     newTaskIds.splice(dest.index, 0, ...itemsToMove)
 
     const newCol = {
@@ -143,6 +142,10 @@ export function MenuDrag() {
   }, [state])
   return (
     <div>
+      <Typography variant="body1">
+        Pretrazi jela i sekcije da ih dodas
+      </Typography>
+      <TextField id="search-icon" />
       <DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>
         {state.columnOrder.map((columnId: string) => {
           const column = state.columns[columnId]
