@@ -5,5 +5,6 @@ export const mealSchema = yup.object().shape({
   description: yup.string().optional(),
   price: yup.number().optional(),
   section: yup.string().optional(),
-  tags: yup.array().of(yup.string()).optional(),
+  tags: yup.string().optional(),  
+  // tags: yup.array().of(yup.string()).optional(),
 })

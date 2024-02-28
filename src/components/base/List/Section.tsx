@@ -14,6 +14,8 @@ import IconButton from "@mui/material/IconButton"
 import { ThemeProvider } from "@mui/material/styles"
 
 import theme from "assets/styles/theme"
+import { buildEditSectionlUrl } from "routing/RoutePaths"
+import { useNavigate } from "react-router-dom"
 const data = [
   {
     id: 1,
@@ -36,6 +38,7 @@ const data = [
 ]
 export function SectionList() {
   const dense = true
+  const router = useNavigate()
   return (
     <ThemeProvider theme={theme}>
       <List dense={dense}>
@@ -48,7 +51,9 @@ export function SectionList() {
                 marginBottom:"5px",
             }}
             secondaryAction={
-                <IconButton edge="end" aria-label="edit">
+                <IconButton edge="end" aria-label="edit" onClick={() =>
+                  router(buildEditSectionlUrl(String(item.id)))
+                }>
                   <EditOutlinedIcon  color="primary"/>
                 </IconButton>
               }
