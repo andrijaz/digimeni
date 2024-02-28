@@ -8,6 +8,8 @@ import ListItemText from "@mui/material/ListItemText"
 import { ThemeProvider } from "@mui/material/styles"
 
 import theme from "assets/styles/theme"
+import { useNavigate } from "react-router-dom"
+import { buildEditMealUrl } from "routing/RoutePaths"
 
 const data = [
     {
@@ -43,6 +45,7 @@ const data = [
   ]
 export function MealList() {
     const dense = true
+    const router = useNavigate()
     return (
       <ThemeProvider theme={theme}>
         <List dense={dense}>
@@ -55,7 +58,8 @@ export function MealList() {
                   marginBottom:"5px",
               }}
               secondaryAction={
-                  <IconButton edge="end" aria-label="edit">
+                  <IconButton edge="end" aria-label="edit" onClick={() =>
+                    router(buildEditMealUrl(String(item.id)))} >
                     <EditOutlinedIcon  color="primary"/>
                   </IconButton>
                 }

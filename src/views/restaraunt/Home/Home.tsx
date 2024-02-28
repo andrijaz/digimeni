@@ -22,12 +22,13 @@ import Typography from "components/base/typography/Text"
 import withPageLayout from "views/generalPagelayout"
 import {
   RoutePaths,
+  buildAccPageUrl,
+  buildAddMealUrl,
   buildEditFoodUrl,
   buildEditMealUrl,
   buildResAdminUrl,
   replaceResSlug,
 } from "routing/RoutePaths"
-import { REST_SLUG } from "views/constants"
 
 const Home: React.FC = () => {
   const router = useNavigate()
@@ -47,7 +48,7 @@ const Home: React.FC = () => {
             icon={<MenuBookOutlinedIcon />}
             onClick={() =>
               handleButtonClick(
-                replaceResSlug(RoutePaths.resEditMenu, REST_SLUG),
+                replaceResSlug(RoutePaths.resEditMenu),
               )
             }
           />
@@ -56,7 +57,7 @@ const Home: React.FC = () => {
         <IconWrap>
           <IconButton
             icon={<DinnerDiningOutlinedIcon />}
-            onClick={() => handleButtonClick(buildEditFoodUrl(REST_SLUG))}
+            onClick={() => handleButtonClick(buildEditFoodUrl())}
           />
           <Typography variant="body2">Izmeni Hranu</Typography>
         </IconWrap>
@@ -71,7 +72,7 @@ const Home: React.FC = () => {
           <IconButton
             icon={<AddCircleOutlineOutlinedIcon />}
             onClick={() =>
-              handleButtonClick(buildEditMealUrl(REST_SLUG, "123"))
+              handleButtonClick(buildAddMealUrl())
             }
           />
           <Typography variant="body2">Dodaj jelo</Typography>
@@ -111,7 +112,11 @@ const Home: React.FC = () => {
           <Typography variant="body2">Statistika</Typography>
         </IconWrap>
         <IconWrap>
-          <IconButton icon={<ManageAccountsOutlinedIcon />} />
+          <IconButton icon={<ManageAccountsOutlinedIcon />} 
+          onClick={() =>
+            handleButtonClick(buildAccPageUrl())
+          }
+          />
           <Typography variant="body2">Podesavanja naloga</Typography>
         </IconWrap>
       </Section>

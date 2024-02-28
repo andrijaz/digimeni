@@ -7,13 +7,11 @@ import IconButton from "components/base/IconButton"
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined"
 import Typography from "components/base/typography/Text"
 import {
-  RoutePaths,
   buildEditMealUrl,
   buildEditSectionlUrl,
 } from "routing/RoutePaths"
 
 import { useNavigate } from "react-router-dom"
-import { REST_SLUG } from "views/constants"
 
 interface ItemProps {
   item: MenuItemDrag
@@ -21,8 +19,8 @@ interface ItemProps {
 }
 
 function getBgColor(item_type: string, is_drag: boolean) {
-  if (item_type == "meal" && is_drag) return "lightgreen"
-  if (item_type == "section" && is_drag) return "lightblue"
+  if (item_type === "meal" && is_drag) return "lightgreen"
+  if (item_type === "section" && is_drag) return "lightblue"
   return "white"
 }
 const Container = styled.div<{ item_type: string; is_drag: boolean }>`
@@ -37,9 +35,9 @@ const Container = styled.div<{ item_type: string; is_drag: boolean }>`
 `
 function getEditUrl(item: MenuItemDrag) {
   if (item.type === "meal") {
-    return buildEditMealUrl(REST_SLUG, item.id)
+    return buildEditMealUrl(item.id)
   }
-  return buildEditSectionlUrl(REST_SLUG, item.id)
+  return buildEditSectionlUrl(item.id)
 }
 export default function Item({ item, index }: ItemProps) {
   const router = useNavigate()

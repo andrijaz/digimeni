@@ -23,9 +23,9 @@ function Login() {
         DigiMeni <DigiMeniIcon width={"50px"} />
       </h1>
       <Layout>
-        <Typography variant="h1">Korisnicko ime</Typography>
+        <Typography variant="h4">Korisnicko ime</Typography>
         <TextField />
-        <Typography variant="h1">Lozinka</Typography>
+        <Typography variant="h4">Lozinka</Typography>
         <TextField />
         <Button>
           <Typography>Uloguj se</Typography>
@@ -34,5 +34,5 @@ function Login() {
     </>
   )
 }
-const Loginpage = withPageLayout(Login)
-export default Loginpage
+const RestarauntAdminLogin = withPageLayout(Login)
+export default RestarauntAdminLogin

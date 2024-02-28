@@ -6,7 +6,7 @@ function AddMeal() {
     name: "Existing Meal",
     price: 15.99,
     description: "A delicious meal",
-    tags: ["Vegetarian", "Gluten-Free"],
+    tags: "Vegetarian,Gluten-Free",
     section: "Starter",
   }
 

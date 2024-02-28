@@ -34,7 +34,7 @@ const MealForm: React.FC<MealFormProps> = ({ initialValues }) => {
       <TextField id="section" {...register("section")} />
 
       <Typography variant="body1">Oznake jela</Typography>
-      <TextField id="tags" {...register("tags")} />
+      <TextField id="tags" {...register("tags")}/>
 
       <Button type="submit" onClick={handleSubmit(updateMeal)}>
         <Typography>Sacuvaj</Typography>

@@ -4,7 +4,7 @@ export interface MealFormProps {
     price: number
     description: string
     section: string
-    tags: string[]
+    tags: string
   }
   onSubmit: (values: any) => void
 }
